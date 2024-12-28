@@ -13,7 +13,7 @@ db.on('connected', () => {
     console.log('Connected to Mongodb server');
 })
 
-db.on('error', () => {
+db.on('error', (err) => {
     console.log('MongoDB connection error', err);
 })
 
