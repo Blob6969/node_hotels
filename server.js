@@ -17,17 +17,18 @@ app.use(logRequest);
 
 app.use(passport.initialize());
 
-const localAuthMiddleware =  passport.authenticate('local', {session: false});
+// const localAuthMiddleware =  passport.authenticate('local', {session: false});
+
 app.get('/', function (req, res) {
   res.send('Welcome To Our Hotel ');
-})
+}) 
 
 
 const personRoutes = require('./routes/personRoutes');
 const MenuItemRoutes = require('./routes/menuRoutes');
 
 
-app.use('/person', localAuthMiddleware , personRoutes);
+app.use('/person',  personRoutes);
 app.use('/menuItem',  MenuItemRoutes);
 
 app.listen(PORT, () => {
